@@ -1,0 +1,88 @@
+.navbar-nav {
+    flex-direction: row
+
+}
+
+.padRem{
+    padding-left: 0px;
+}
+
+.navbar {
+    background-color: white;
+}
+
+.navbar>.container,
+.navbar>.container-fluid,
+.navbar>.container-lg,
+.navbar>.container-md,
+.navbar>.container-sm,
+.navbar>.container-xl,
+.navbar>.container-xxl {
+    justify-content: flex-end;
+}
+
+.col-md-4 {
+    text-align: center;
+}
+
+.logout{
+    cursor: pointer;
+}
+
+.padd{
+    padding-left: 10px;
+}
+
+h3{
+    font-weight: 80;
+}
+
+.btn-sm{
+    border-color: #ddd;
+}
+
+.marg{
+    position:absolute;
+    left: 250px;
+    top:-4px;
+}
+
+.btnn{
+    text-align: left;
+    font-weight: 200;
+    padding: 0.2rem 1rem 0.1rem 0.1rem;
+}
+
+.one{
+    color: green;
+}
+
+.two{
+    color: red;
+}
+.thr{
+    color: blue;
+}
+.four{
+    color: lightblue;
+}
+.five{
+    color: orange;
+}
+
+.btnn{
+    border-bottom: 1px solid #ddd;
+}
+
+.btn:focus{
+    box-shadow: none;
+    border-bottom: 2px solid #ccc;
+}
+
+.padR{
+    padding-right: 0px;
+}
+
+.row {
+     --bs-gutter-x: 0rem; 
+}
