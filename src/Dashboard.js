@@ -9,41 +9,11 @@ import Listing from "./Listing";
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      emails: [],
-    };
   }
+
   handleClick = () => {
     localStorage.removeItem("isLoggedIn");
     this.props.history.push("/login");
-  };
-
-  componentDidMount() {
-    const emails = localStorage.getItem("emails");
-    const data = JSON.parse(emails);
-    let dataArr = [];
-    for (const key in data) {
-      if (Object.hasOwnProperty.call(data, key)) {
-        dataArr.push(data[key]);
-      }
-    }
-    this.setState({
-      emails: dataArr,
-    });
-  }
-
-  handleRefresh = () => {
-    const emails = localStorage.getItem("emails");
-    const data = JSON.parse(emails);
-    let dataArr = [];
-    for (const key in data) {
-      if (Object.hasOwnProperty.call(data, key)) {
-        dataArr.push(data[key]);
-      }
-    }
-    this.setState({
-      emails: dataArr,
-    });
   };
 
   render() {
@@ -69,13 +39,20 @@ class Dashboard extends React.Component {
             <p></p>
             <div className="row">
               <h3 className="padd">Folders</h3>
-              <Link to="/dashboard/indox" role="button" className="btnn btn btn-default btn-lg">
-
+              <a
+                href="/dashboard/inbox"
+                role="button"
+                className="btnn btn btn-default btn-lg"
+              >
                 <i className="fa-solid fa-inbox padd"></i>&nbsp;Inbox
-</Link>
-              <Link to="/dashboard/sent" role="button" className="btnn btn btn-default btn-lg">
-                  <i className="fa-solid fa-envelope padd"></i>&nbsp;Sent Mail
-              </Link>
+              </a>
+              <a
+                href="/dashboard/sent"
+                role="button" 
+                className="btnn btn btn-default btn-lg"
+              >
+                <i className="fa-solid fa-envelope padd"></i>&nbsp;Sent Mail
+              </a>
               <button type="button" className="btnn btn btn-default btn-lg">
                 <i className="fa-solid fa-circle padd"></i>&nbsp;Important
               </button>
@@ -110,11 +87,23 @@ class Dashboard extends React.Component {
             </div>
           </div>
           <div className="col-md-9">
-              <Switch>
-                <Route exact path={`${this.props.location.pathname}/`} render={(props) =><Listing {...props} type="inbox" />} />
-                <Route exact path={`${this.props.location.pathname}/inbox`} render={(props) =><Listing {...props} type="inbox" />} />
-                <Route exact path={`${this.props.location.pathname}/sent`} render={(props) =><Listing {...props} type="sent" />} />
-              </Switch>
+            <Switch>
+              <Route
+                exact
+                path={`/dashboard/inbox`}
+                render={(props) => <Listing {...props} type="inbox" />}
+              />
+              <Route
+                exact
+                path={`/dashboard/sent`}
+                render={(props) => <Listing {...props} type="sent" />}
+              />
+              <Route
+                exact
+                path={`/dashboard/`}
+                render={(props) => <Listing {...props} type="inbox" />}
+              />
+            </Switch>
           </div>
         </div>
       </>
